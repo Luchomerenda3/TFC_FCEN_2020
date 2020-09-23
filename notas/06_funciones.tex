@@ -64,9 +64,27 @@ def identificador(p1,p2,p3=0):
  
 def identificador(p1,p2):
    # pasan cosas
-   # pasan má cosas
+   # pasan más cosas
    # al no tener "return" esta función devuelve None
    
+\end{minted}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Definición de funciones, sintaxis}
+Una función puede devolver más de un valor:
+\begin{block}{}
+\begin{minted}{python}
+def identificador(p1,p2,p3=0):
+   # pasan cosas
+   # pasan más cosas
+   return resultado1, resultado2   
+\end{minted}
+lo cual se invoca de la forma:
+\begin{minted}{python}
+a,b = identificador(p1,p2,p3)
 \end{minted}
 \end{block}
 \end{frame}
