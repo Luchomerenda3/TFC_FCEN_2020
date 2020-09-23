@@ -45,6 +45,7 @@
 \item Las funciones pueden tener argumentos opcionales (como el caso de round).
 \item Las funciones pueden tener parámetros con nombre.
 \item Las funciones pueden devolver un valor o no.
+\item Las funciones pueden devolver más de un valor.
 \item Las funciones pueden tener \alert{efectos colaterales}.
 \item Las variables definidas dentro de una función sólo viven mientras la función se está ejecutando.
 \end{itemize}
@@ -80,7 +81,7 @@ Una función puede devolver más de un valor:
 def identificador(p1,p2,p3=0):
    # pasan cosas
    # pasan más cosas
-   return resultado1, resultado2   
+   return resultado1, resultado2    
 \end{minted}
 lo cual se invoca de la forma:
 \begin{minted}{python}
@@ -91,24 +92,47 @@ a,b = identificador(p1,p2,p3)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{Definición de funciones, sintaxis}
-Las funciones pueden tener un número variable de argumentos tanto nombrados como sin nombre, para ello se utilizan las estructuras de datos {\em lista} y {\em diccionario} que veremos más adelante.
-\begin{block}{}
-\begin{minted}{python}
-def identificador(*argumentos):
-   # pasan cosas
-   # pasan más cosas
-   # los argumentos entran por una "lista"
-   return resultado 
- 
-def identificador(**argumentos):
-   # pasan cosas
-   # pasan más cosas
-   # los argumentos entran por un "diccionario"
-   return resultado   
-\end{minted}
-\end{block}
-\end{frame}
+   \frametitle{Alcance (Scope) y Efectos colaterales}
+   \begin{itemize}
+      \item Las variables definidas dentro de una función sólo viven mientras la función se está ejecutando.
+      \item Las funciones pueden tener efectos colaterales, de hecho puede ser lo único que hagan.
+   \end{itemize}
+    
+   \begin{block}{}
+   \begin{minted}{python}
+   def identificador(a,b):
+      c = 3.14 # c sólo vive mientras estoy aquí dentro
+      variable_global = 1e3000 # Puedo arruinar (o no) 
+                               # variables globales
+                               # (efecto colateral PELIGROSO)
+      print(c) # Este es un efecto colateral 
+      resultado = a + b + c
+      return resultado 
+   \end{minted}
+   \end{block}
+   \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+   \frametitle{Definición de funciones, sintaxis}
+   Las funciones pueden tener un número variable de argumentos tanto nombrados como sin nombre, para ello se utilizan las estructuras de datos {\em lista} y {\em diccionario} que veremos más adelante.
+   \begin{block}{}
+   \begin{minted}{python}
+   def identificador(*argumentos):
+      # pasan cosas
+      # pasan más cosas
+      # los argumentos entran por una "lista"
+      return resultado 
+    
+   def identificador(**argumentos):
+      # pasan cosas
+      # pasan más cosas
+      # los argumentos entran por un "diccionario"
+      return resultado   
+   \end{minted}
+   \end{block}
+   \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
