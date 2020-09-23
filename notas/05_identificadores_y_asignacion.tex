@@ -1,0 +1,155 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{calrsfs}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Identificadores y asignación. Nociones de Objetos.}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Identificadores o nombres}
+\begin{block}{{\em Identificadores o nombres}}
+\begin{itemize}
+\item Los identificadores son ``palabras'' armadas con un subconjunto de ``letras'' o caracteres que no sean espacios.
+\item Las reglas para los posibles identificadores son muchas, particularmente con caracteres Unicode.
+\item Algunos ejemplos de identificadores válidos son: \mintinline{python}{a0, AceleraciónLineal, number_02}
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Identificadores o nombres}
+\begin{block}{{\em Identificadores o nombre}}
+\begin{itemize}
+\item Los identificadores o nombres sirven para ponerle nombre a las cosas (!)
+\item Cuando decimos ``cosas'' estamos hablando de {\em objetos}.
+\item Hay muchas formas en que un objeto recibe un nombre.
+\item Por ahora nos interesan las \alert{asignaciones}: {\tt nombre = algo}
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Asignación}
+\begin{block}{Asignación}
+Una asignación tiene la estructura \mintinline{python}{nombre = objeto} o  \mintinline{python}{nombre = relación u operación entre objetos}.
+\begin{minted}{python}
+a = 2.0**(1/2)  + 1
+b = a - 3
+c = "hoy hay sol"
+d = f"b vale {b}"
+\end{minted}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Asignación}
+\begin{block}{Asignación múltiple}
+Las siguientes asignaciones son válidas:
+\begin{minted}{python}
+a, b = 1, 2
+c, d = b + 1, b + 2
+a, b = b, a
+\end{minted}
+En una asignación se evalúan primero las operaciones a la derecha de la asignación y las asignaciones se hacen de izquierda a derecha en la lista.
+(\dag) Las asignaciones múltiples hacen uso de \alert{tuplas}, un tipo que aún no hemos visto.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Asignación aumentada} 
+\begin{block}{Asignación aumentada}
+Si \mintinline{python}{a} y \mintinline{python}{b} representan números (\dag) la siguiente asignación \mintinline{python}{a += b} 
+\begin{minted}{python}
+a = 1
+a += 1 # es lo mismo que a = a + 1
+\end{minted}
+\end{block}
+(\dag) números u objetos para los cuales la operación binaria \mintinline{python}{+} esté definida
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{En la práctica} 
+\begin{block}{En la práctica}
+Los nombres se utilizan para guardar resultados intermedios que se van combinando o transformando para generar el resultado final (\dag).
+En general a los nombres les vamos a llamar \alert{variables}.
+\end{block}
+(\dag) Si es que existe\ldots
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Programa y estado} 
+\begin{block}{Programa}
+Un programa es una secuencia de instrucciones que modifican el \alert{estado}.
+\end{block}
+\begin{block}{Estado}
+El estado de un programa en un determinado momento está representado por el conjunto de objetos que tienen nombre (variables), es decir, son accesibles.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Programa y estado} 
+%Diagram
+\begin{figure}
+\begin{tikzpicture}[node distance=2cm]
+
+\tikzstyle{squarednode} = [rectangle, draw=blue!60, fill=blue!5, very thick, minimum height=10mm, minimum width=40mm, text centered]
+\tikzstyle{darrow} = [very thick,dashed,->,>=stealth]
+\tikzstyle{arrow} = [very thick,->,>=stealth]
+
+%Nodes
+\node (E0) [squarednode] 			     {$\mathcal{E}_0 = \lbrace a_0,b_0,c_0,\ldots \rbrace$};
+\node (E1) [squarednode, below of=E0] {$\mathcal{E}_0 = \lbrace a_0,b_0,c_0,\ldots \rbrace$};
+\node (E2) [squarednode, below of=E1] {$\mathcal{E}_n = \lbrace a_n,b_n,c_0,\ldots \rbrace$};
+\node (Ef)  [squarednode, below of=E2] {$\mathcal{E}_f = \lbrace a_f,b_f,c_f,\ldots \rbrace$};
+
+\draw [arrow] (E0) -- node[anchor=west] {$\mathcal{P}$} (E1);
+\draw [darrow] (E1) -- node[anchor=west] {$\mathcal{P}$} (E2);
+\draw [darrow] (E2) -- node[anchor=west] {$\mathcal{P}$} (Ef);
+
+\end{tikzpicture}
+\end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://docs.python.org/3/reference/index.html}{Manual de referencia de Python}
+\item \href{https://docs.python.org/3/library/index.html}{Manual de la Librería estándar de Python}
+\end{itemize}
+\end{frame}
+
+\end{document}

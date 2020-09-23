@@ -1,0 +1,281 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Literales y Operadores aritméticos}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Aclaración terminológica}
+\begin{block}{{\em Aclaración terminológica}}
+La documentación oficial de Python está en inglés. Vamos a tratar de traducir las palabras importantes dentro de lo posible. A veces utilizaremos directamente en inglés para simplificarnos la existencia.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Tokens}
+\begin{block}{{\em Tokens}}
+(Simplificando) un {\bf programa} escrito en Python es leído por el intérprete como una secuencia de {\em tokens}.
+\end{block}
+\begin{block}{Lista de {\em tokens}:}
+NUEVA LÍNEA, INDENTACIÓN, DEDENTACIÓN, identificadores, palabras clave, literales, operadores y delimitadores
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Palabras clave}
+\begin{block}{{Palabras clave}}
+%\begin{onlyenv}<2>
+\begin{minted}{python}
+False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yield
+\end{minted}
+%\end{onlyenv}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Operadores}
+\begin{block}{{Operadores}}
+%\begin{onlyenv}<2>
+\begin{minted}{python}
++       -       *       **      /       //      %      @
+<<      >>      &       |       ^       ~       :=
+<       >       <=      >=      ==      !=
+\end{minted}
+%\end{onlyenv}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Delimitadores}
+\begin{block}{{Delimitadores}}
+%\begin{onlyenv}<2>
+\begin{minted}{python}
+(       )       [       ]       {       }
+,       :       .       ;       @       =       ->
++=      -=      *=      /=      //=     %=      @=
+&=      |=      ^=      >>=     <<=     **=
+\end{minted}
+%\end{onlyenv}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Identificadores o nombres}
+\begin{block}{{\em Identificadores o nombres}}
+\alert{para más adelante}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Literales}
+\begin{block}{Literales}
+Los {\em literales} son una notación para valores {\bf constantes} de {\bf algunos} tipos incorporados en el lenguaje.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Tokens}
+\begin{block}{{\em Tokens}}
+(Simplificando) un {\bf programa} escrito en Python es leído por el intérprete como una secuencia de {\em tokens}.
+\end{block}
+\begin{block}{Lista de {\em tokens}:}
+NUEVA LÍNEA, INDENTACIÓN, DEDENTACIÓN, identificadores, palabras clave, literales, operadores y delimitadores
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Literales Numéricos}
+\begin{block}{Enteros}
+\begin{itemize}
+\item Decimales: \mintinline{python}{123431235} o \mintinline{python}{123_431_235} 
+\item Binarios: \mintinline{python}{0b0101010101}  o \mintinline{python}{0B0_1010_101_01} (puede ser 
+\item Octales: \mintinline{python}{0o01234567} o \mintinline{python}{0O01_234_567}
+\item Hexadecimales: \mintinline{python}{0xFFFFFFFF} o \mintinline{python}{0XFF_FF_FF_FF}  
+\end{itemize}
+Notas: Los caracteres {\tt b,o} y {\tt f} pueden ser mayúscula o minúscula. El guión bajo puede usarse para agrupar dígitos de forma arbitraria. Los enteros en python (versión 3 en adelante) no son acotados.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Literales Numéricos}
+\begin{block}{Punto Flotante}
+\begin{itemize}
+\item \mintinline{python}{3.14} o \mintinline{python}{10.} o  \mintinline{python}{10.0}  o \mintinline{python}{31.4e-1} o  \mintinline{python}{31.4e5} 
+
+\end{itemize}
+Nota: Los las cotas para los números de punto flotante dependen de la implementación.
+\end{block}
+\begin{block}{Imaginarios}
+\begin{itemize}
+\item \mintinline{python}{3.14j} o \mintinline{python}{10.j} o  \mintinline{python}{10.0j}  o \mintinline{python}{31.4e-1j} o  \mintinline{python}{31.4e5j} 
+\end{itemize}
+Nota: Los números complejos se construyen sumando un imaginario a un punto flotante real.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Literales de caracteres}
+\begin{block}{Cadenas de caracteres}
+\begin{itemize}
+\item \mintinline{python}{"Esto es una cadena"} o \mintinline{python}{'Esto es una cadena'}
+\item Se pueden construir cadenas multilínea con triples comillas:
+\begin{minted}{python}
+"""Esto es
+una cadena"""
+\end{minted}
+o 
+\begin{minted}{python}
+'''Esto también es
+una cadena'''
+\end{minted}
+\item Las {\em secuencias de escape} \mintinline{python}{\n \t \\ \' \"} se utilizan para insertar una nueva línea, un tabulador, una barra y los dos tipos de comillas respectivamente, dentro de una cadena de caracteres.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Literales de caracteres}
+\begin{block}{Cadenas de formato}
+\begin{itemize}
+\item Las cadenas de formato se utilizan para construir cadenas que contienen valores de \alert{expresiones} que son evaluadas y a las que se les da formato en el momento de construcción de la cadena. 
+\item Las cadenas de formato están precedidas por una {\tt f} seguida de alguna comilla y contienen las expresiones a ser evaluadas y una especificación de formato entre llaves. Siguen algunos ejemplos:
+\item  \mintinline{python}{f" uno y un tercio con tres decimales es {1 + 1/3:.3f}"}
+\item  \mintinline{python}{f" mil en un espacio de 10 caracteres es {10*10*10:10d}"}
+\item La expresión de formato tiene muchas posibilidades, la documentación puede encontrarse en el \href{https://docs.python.org/3/library/string.html}{manual}.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Operadores aritméticos}
+Para poder empezar a hacer ``algo'' usando Python introducimos ahora los operadores aritméticos:
+\begin{block}{Operadores aritméticos}
+\begin{itemize}
+\item \mintinline{python}{+ }: Suma como binario o elemento positivo como unario.
+\item \mintinline{python}{- }: Resta como binario o negativo como unario.
+\item \mintinline{python}{* }: Multiplicación, es binario.
+\item \mintinline{python}{/ }: División, es binario.
+\item \mintinline{python}{// }: División entera, es binario.
+\item \mintinline{python}{% }: Módulo (resto de la división entera), es binario.
+\item \mintinline{python}{** }: Exponenciación, es binario
+\item Se pueden utilizar paréntesis dentro de una expresión para asegurar el orden de evaluación.
+\end{itemize}
+Estos operadores son un subconjunto de los operadores que listamos anteriormente al hablar de {\em tokens}.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Detalles importantes}
+
+\begin{block}{Promoción}
+\begin{itemize}
+\item Una expresión compuesta sólo por enteros (incluyendo cualquier resultado intermedio) da como resultado un entero. 
+\item La presencia de un número de punto flotante convierte a toda la expresión a punto flotante.
+\item La presencia de un número complejo convierte a toda la expresión en compleja.
+\end{itemize}
+\end{block}
+\begin{block}{Consejo}
+Nunca está de más agregar paréntesis para hacer que las cosas sean más legibles aunque no sean estrictamente necesarios.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Detalles importantes}
+
+\begin{block}{Precedencia}
+
+\begin{itemize}
+\item La precedencia determina el orden en el que se llevan a cabo las operaciones en una {\em expresión}.  
+\item La precedencia de operadores aritméticos sigue el orden PEMuDReS.
+\item Primero paréntesis, luego exponenciación, luego multiplicación y división, luego resta y suma.
+\item La exponenciación es asociativa hacia la derecha.
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Detalles importantes}
+
+\begin{block}{Precedencia}
+
+\begin{itemize}
+\item La precedencia determina el orden en el que se llevan a cabo las operaciones en una {\em expresión}.  
+\item La precedencia de operadores aritméticos sigue el orden PEMuDReS.
+\item Primero paréntesis, luego exponenciación, luego multiplicación y división, luego resta y suma.
+\item La exponenciación es \alert{asociativa hacia la derecha}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Un adelanto: Algunas funciones}
+
+\begin{block}{Algunas funciones útiles}
+
+\begin{itemize}
+\item \mintinline{python}{abs(x) }: Devuelve el valor absoluto.
+\item \mintinline{python}{complex(x,y)}: Devuelve el complejo $x+iy$
+\item \mintinline{python}{int(x)}: Devuelve la parte entera de $x$
+\item \mintinline{python}{float(n)}: Convierte el argumento en punto flotante
+\item \mintinline{python}{hex(n)}: Devuelve la representación hexadecimal del entero $n$
+\item \mintinline{python}{oct(n)}: Devuelve la representación octal de entero $n$
+\item \mintinline{python}{bin(n)}: Devuelve la representación binaria del entero $n$
+\item \mintinline{python}{round(n,[m])}: Redondea al flotante más cercano con $m$ dígitos después de la coma o al entero más cercano si $m$ está ausente.
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://docs.python.org/3/reference/index.html}{Manual de referencia de Python}
+\item \href{https://docs.python.org/3/library/index.html}{Manual de la Librería estándar de Python}
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,123 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Generales e Introducción}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Condiciones de contorno}
+\begin{block}{Recursos}
+\begin{itemize}
+\item Grupo de Telegram: \url{https://t.me/tfcfcen}
+\item Google Classroom: (código a enviar)
+\item Clases de \alert{consulta}: miércoles y viernes de 10 a 12.
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Expectativas de logro}
+\begin{itemize}
+\item Dominar los conceptos básicos para el manejo del lenguaje Python. 
+\item Dominar los siguientes elementos de programación: Algoritmos y estructuras de datos simples, así como modelos de control de flujo de ejecución. 
+\item Aplicar programación a la resolución de problemas de distintas ramas de la física mediante el uso de computadoras utilizando lenguaje Python como herramienta. 
+\item Diseñar y desarrollar visualizaciones efectivas de resultados en gráficos bi y tridimensionales.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Cómo desarrollaremos el curso? ({\em \href{https://dle.rae.es/desiderata}{desiderata}})}
+Con los siguientes elementos
+\begin{itemize}
+\item ``Pedacitos'' de ``teoría''.
+\item Ejemplos resueltos en forma demostrativa.
+\item Ejercitación.
+\item Clases de consulta.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Porqué Python?}
+
+A favor:
+\begin{itemize}
+\item Es un lenguaje \alert{fácil de entender} (ponele).
+\item Es un lenguaje \alert{flexible}.
+\item Es un lenguaje \alert{multipropósito}.
+\item Es un lenguaje \alert{de alto nivel}.
+\item Es un lenguaje \alert{interpretado}.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{¿Porqué Python?}
+
+En contra:
+\begin{itemize}
+\item Es \alert{lento}.
+\item No es amigable con \alert{multiprocesamiento}.
+\item Al usar usar {\em tipos dinámicos} para las variables mucho depende del contexto.
+\item Puede ser contraintuitivo para los que vienen de lenguajes más ``duros''.
+\item Es \alert{enorme}, la misma cosa se puede hacer de \alert{muchas, muchas} formas diferentes.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Lenguajes compilados e interpretados}
+\begin{block}{Un lenguaje compilado}
+Se utiliza un {\em compilador} para pasar del lenguaje (C por ejemplo) a un programa en {\em lenguaje de máquina} que luego es ejecutado.
+\end{block}
+\vspace{0.5cm}
+\begin{block}{Un lenguaje interpretado}
+Un programa {\em intérprete} ejecuta porciones de {\em lenguaje de máquina} \alert{preestablecidos} a medida que interpreta.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{El tipo de las variables es dinámico}
+\begin{block}{Tipeado dinámico}
+En Python el {\bf tipo} de las {\em variables} es \alert{dinámico}. 
+\end{block}
+A esta oración todavía le falta mucho contexto que le iremos agregando, pero es algo importante a tener en cuenta. A diferencia de otros lenguajes (paradigmáticamente {\tt C}) el tipo de una variable (entero, real, caracteres, etc.) puede ir cambiando a lo largo del programa y se determina de forma dinámica, siempre en base al programa claro. Esto le da al lenguaje mucha ``potencia'' ya que es posible escribir código compacto que hace muchas cosas ``detrás de la escena''. Como toda fortaleza puede convertirse en una debilidad si uno no tiene claro exactamente qué es lo que está haciendo.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Síntesis ($\pm$)}
+\begin{block}{Taller de Física Computacional}
+Vamos a aprender (un subconjunto pequeño) del lenguaje Python \alert{haciendo y errando}, es decir programando (ese tema de la bicicleta).
+\end{block}
+
+\end{frame}
+
+\end{document}

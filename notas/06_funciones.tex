@@ -1,0 +1,105 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Funciones}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Funciones}
+\begin{block}{{\em Funciones}}
+\begin{itemize}
+\item Ya hemos visto algunas funciones que son parte de la biblioteca estándar como  \mintinline{python}{abs()} o \mintinline{python}{round(x,[n])}.
+\item Las funciones en el marco de nuestro modelo de lo que es un programa son sub-programas.
+\item Sirven para reducir el problema en porciones más pequeñas o simples.
+\item Es una buena práctica ir armando una biblioteca de funciones para tenerlas a mano.
+\item En Python las bibliotecas de funciones se guardan en \alert{módulos}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Funciones}
+\begin{block}{{\em Funciones en Python}}
+\begin{itemize}
+\item Las funciones pueden tener un número fijo o variable de argumentos que puede ser cero.
+\item Las funciones pueden tener argumentos opcionales (como el caso de round).
+\item Las funciones pueden tener parámetros con nombre.
+\item Las funciones pueden devolver un valor o no.
+\item Las funciones pueden tener \alert{efectos colaterales}.
+\item Las variables definidas dentro de una función sólo viven mientras la función se está ejecutando.
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Definición de funciones, sintaxis}
+Usamos las palabras clave \mintinline{python}{def, return, None}, el delimitador \mintinline{python}{:} y los {\em tokens NUEVA LíNEA, INDENTACIÓN y DEDENTACIÓN}. las siguientes son definiciones válidas de funciones
+\begin{block}{}
+\begin{minted}{python}
+def identificador(p1,p2,p3=0):
+   # pasan cosas
+   # pasan más cosas
+   return resultado 
+ 
+def identificador(p1,p2):
+   # pasan cosas
+   # pasan má cosas
+   # al no tener "return" esta función devuelve None
+   
+\end{minted}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Definición de funciones, sintaxis}
+Las funciones pueden tener un número variable de argumentos tanto nombrados como sin nombre, para ello se utilizan las estructuras de datos {\em lista} y {\em diccionario} que veremos más adelante.
+\begin{block}{}
+\begin{minted}{python}
+def identificador(*argumentos):
+   # pasan cosas
+   # pasan más cosas
+   # los argumentos entran por una "lista"
+   return resultado 
+ 
+def identificador(**argumentos):
+   # pasan cosas
+   # pasan más cosas
+   # los argumentos entran por un "diccionario"
+   return resultado   
+\end{minted}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://docs.python.org/3/reference/index.html}{Manual de referencia de Python}
+\item \href{https://docs.python.org/3/library/index.html}{Manual de la Librería estándar de Python}
+\end{itemize}
+\end{frame}
+
+\end{document}

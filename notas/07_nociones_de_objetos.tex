@@ -1,0 +1,79 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Nociones de Objetos}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Objetos}
+\begin{block}{{\em Objetos}}
+Conviene tener aunque sea una noción de la forma en que los objetos funcionan en Python porque los encontraremos más temprano que tarde.
+\end{block}
+\begin{block}{{\em Objetos y Clases}}
+\begin{itemize}
+\item Una {\bf Clase} contiene las definición de las {\em propiedades}, los {\em métodos} y las {\em operaciones} entre miembros de una clase.
+\item Un {\bf Objeto} es una instancia de una clase.
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Objetos}
+\begin{block}{{\em Objetos}}
+\begin{itemize}
+\item Los {\em Objetos} en Python son una abstracción para los {\em datos}. 
+\item Todo {\em dato} en un programa Python está representado por objetos o relaciones entre objetos.
+\item Cada objeto tiene una {\em identidad}, un {\em tipo} y un {\em valor}.
+\item La identidad y el tipo de un objeto no pueden cambiar (ojo).
+\item El valor de un objeto puede cambiar (dependiendo del tipo).
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Objetos}
+
+\begin{block}{{\em Propiedades}}
+Las propiedades se acceden con la notación  \mintinline{python}{objeto.propiedad}
+\end{block}
+\begin{block}{{\em Métodos}}
+Los métodos se acceden con la notación  \mintinline{python}{objeto.función([parámetros])} (\dag)\\
+En Python los métodos de un objeto no necesariamente operan sobre sus propiedades.
+\end{block} 
+(\dag) La notación \mintinline{python}{[parámetros]} indica que lo que está entre corchetes puede estar o no. 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://en.wikipedia.org/wiki/Object-oriented_programming}{Programación Orientada a Objetos en Wikipedia}
+\item \href{https://docs.python.org/3/reference/index.html}{Manual de referencia de Python}
+\item \href{https://docs.python.org/3/library/index.html}{Manual de la Librería estándar de Python}
+\end{itemize}
+\end{frame}
+
+\end{document}

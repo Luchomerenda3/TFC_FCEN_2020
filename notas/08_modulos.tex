@@ -1,0 +1,122 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Nociones de Módulos}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Módulos}
+\begin{block}{{\em Módulos}}
+De acuerdo al \href{https://docs.python.org/3/glossary.html}{Glosario de Python}:
+\begin{quote}
+Un {\em módulo} es un objeto que sirve como una unidad organizacional de código Python. Los módulos tienen un {\em espacio de nombres} que contienen objetos de Python arbitrarios. Los módulos se cargan en Python a través del proceso de {\em importación}.
+\end{quote}
+\end{block}
+\begin{itemize}
+\item En la práctica los módulos permiten construir bibliotecas de funciones, clases, variables con valores, etc..
+\item Los módulos se escriben en un archivo {\tt nombre.py} que debe residir en una carpeta accesible a Python.
+\item Los módulos pueden organizarse en paquetes que pueden a su vez contener otros sub-módulos y/o sub-paquetes.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Módulos}
+\begin{block}{{\em Módulos}}
+La \href{https://docs.python.org/3/library/index.html}{Biblioteca estándar} de python contiene decenas de módulos entre los que podemos nombrar por ejemplo:
+\begin{itemize}
+\item {\tt math} Implementa funciones trascendentes y otras funciones matemáticas.
+\item {\tt cmath} Implementa funciones matemáticas definidas para argumentos complejos.
+\item {\tt os} Implementa interfases con el sistema operativo.
+\item Hay otros para el manejo de fechas, cadenas de caracteres, almacenamiento de objetos, compresión, criptografía, etc..
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Módulos para programación científica}
+Los paquetes que más utilizaremos en el curso son:
+\begin{block}{{\em NumPy}}
+\href{https://numpy.org/}{NumPy}:
+Biblioteca de funciones y clases para cálculo numérico, en particular para arreglos multidimensionales. Muy recientemente, luego de 15 años de existencia, el equipo de desarrollo NumPy tiene un \href{https://www.nature.com/articles/s41586-020-2649-2}{paper en nature}.
+\end{block}
+\begin{block}{{\em matplotlib}}
+\href{https://matplotlib.org}{matplotlib}:
+Biblioteca de funciones y clases para visualización.
+\end{block}
+\begin{block}{{\em SciPy}}
+\href{https://scipy.org}{SciPy}:
+Una lista demasiado larga de funciones, clases, constantes y otros muy útiles en programación científica en general.
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Módulos para programación científica}
+Otros proyectos importantes dentro del ecosistema de programación científica en Python incluyen \href{https://pandas.pydata.org/}{pandas} y \href{https://www.sympy.org/en/index.html}{SymPy}. Estos paquetes implementan funcionalidades de estadística y análisis de datos y matemática simbólica respectivamente. Estos proyectos, entre otros, son financiados por la ONG \href{https://numfocus.org/sponsored-projects}{NumFOCUS}.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Sintaxis}
+\begin{block}{Sintaxis}
+Para importar un módulo puede usarse la sintaxis:
+\begin{minted}{python}
+import modulo 
+\end{minted}
+o
+\begin{minted}{python}
+import modulo as alias
+\end{minted}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Sintaxis}
+\begin{block}{Sintaxis}
+Los métodos, clases, etc. de un módulo se acceden usando la notación que vimos para las propiedades y métodos de un objeto:
+\begin{minted}{python}
+modulo.funcion(parametro)
+\end{minted}
+o
+\begin{minted}{python}
+alias.función(parámetro)
+\end{minted}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://numpy.org/doc/stable/}{Documentación de NumPy}
+\item \href{https://numpy.org/doc/stable/reference/routines.math.html}{Funciones matemáticas en NumPy}
+
+\end{itemize}
+\end{frame}
+
+\end{document}
