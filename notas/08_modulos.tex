@@ -80,18 +80,41 @@ Otros proyectos importantes dentro del ecosistema de programación científica e
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{Sintaxis}
-\begin{block}{Sintaxis}
-Para importar un módulo puede usarse la sintaxis:
-\begin{minted}{python}
-import modulo 
-\end{minted}
-o
-\begin{minted}{python}
-import modulo as alias
-\end{minted}
-\end{block}
-\end{frame}
+    \frametitle{Sintaxis}
+    \begin{block}{Sintaxis}
+    Para importar un módulo o un módulo parte de un paquete con todos sus métodos pueden usarse las sintaxis:
+    \begin{minted}{python}
+    import modulo 
+    from paquete import módulo
+    \end{minted}
+    o
+    \begin{minted}{python}
+    import modulo as alias
+    from paquete import módulo as alias
+    \end{minted}
+    En el caso de usar un alias este reemplaza el nombre del módulo para llamar a sus métodos.
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Sintaxis}
+    \begin{block}{Sintaxis}
+    Para importar un método o conjunto de métodos de un módulo:
+    \begin{minted}{python}
+    from modulo import método1, método2, método3
+    \end{minted}
+    Lo mismo vale para importar módulos enteros de un paquete, etc..
+
+    Para importar todos los métodos de un módulo
+    \begin{minted}{python}
+    from modulo import *
+    \end{minted}
+    Si bien la primera forma se usa, la segunda no se recomienda porque ``pisa'' todo el espacio
+    de nombres en el cual se hace la importación, es decir, se sobreescriben todos los nombres que haya ya
+    definidos que sean iguales a los del módulo.
+    \end{block}
+    \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
