@@ -29,7 +29,7 @@
 \begin{itemize}
 \item Ya hemos visto algunas funciones que son parte de la biblioteca estándar como  \mintinline{python}{abs()} o \mintinline{python}{round(x,[n])}.
 \item Las funciones en el marco de nuestro modelo de lo que es un programa son sub-programas.
-\item Sirven para reducir el problema en porciones más pequeñas o simples.
+\item Sirven para reducir el problema a porciones más pequeñas o simples.
 \item Es una buena práctica ir armando una biblioteca de funciones para tenerlas a mano.
 \item En Python las bibliotecas de funciones se guardan en \alert{módulos}.
 \end{itemize}
@@ -55,7 +55,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Definición de funciones, sintaxis}
-Usamos las palabras clave \mintinline{python}{def, return, None}, el delimitador \mintinline{python}{:} y los {\em tokens NUEVA LíNEA, INDENTACIÓN y DEDENTACIÓN}. las siguientes son definiciones válidas de funciones
+Usamos las palabras clave \mintinline{python}{def, return, None}, el delimitador \mintinline{python}{:} y los {\em tokens NUEVA LíNEA, INDENTACIÓN y DEDENTACIÓN}. Las siguientes son definiciones válidas de funciones
 \begin{block}{}
 \begin{minted}{python}
 def identificador(p1,p2,p3=0):
@@ -96,15 +96,15 @@ a,b = identificador(p1,p2,p3)
    \begin{itemize}
       \item Las variables definidas dentro de una función sólo viven mientras la función se está ejecutando.
       \item Las funciones pueden tener efectos colaterales, de hecho puede ser lo único que hagan.
+      \item Una función puede utilizar variables variables globales \alert{(OJO)}
    \end{itemize}
     
    \begin{block}{}
    \begin{minted}{python}
    def identificador(a,b):
       c = 3.14 # c sólo vive mientras estoy aquí dentro
-      variable_global = 1e3000 # Puedo arruinar (o no) 
-                               # variables globales
-                               # (efecto colateral PELIGROSO)
+      c *= variable_global # Puedo usar una variable global
+                           # si esté definida afuera
       print(c) # Este es un efecto colateral 
       resultado = a + b + c
       return resultado 

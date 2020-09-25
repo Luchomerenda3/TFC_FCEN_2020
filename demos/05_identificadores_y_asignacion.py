@@ -24,6 +24,9 @@
 π = 3.14159265358979323846264338327950288419716939937510 
 
 # %%
+π
+
+# %%
 # se asigna un literal a un identificador
 RadioEsfera = 2.718 
 
@@ -35,6 +38,9 @@ esto_y_esto = 5
 
 # %% [markdown]
 # Las siguientes no son válidas:
+
+# %%
+😀 = 'esto es una cara feliz'
 
 # %%
 esto y esto = 5
@@ -242,7 +248,7 @@ b = 2
 c = a + 3 # esta expresión no tiene un valor, a pesar de que hace algo, la celda no devuelve nada
 
 # %% [markdown]
-# Hasta ahora hemos separado las expresiones con separradores de línea, pero también se pueden separar con `;`:
+# Hasta ahora hemos separado las expresiones con separadores de línea, pero también se pueden separar con `;`:
 
 # %%
 a = 1; b = 2; a + 2; a + 3; 

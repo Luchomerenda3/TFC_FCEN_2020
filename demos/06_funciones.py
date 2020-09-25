@@ -49,6 +49,9 @@ def otra_cuadrática(x,a=0,b=0,c=0):
 
 
 # %%
+otra_cuadrática()
+
+# %%
 otra_cuadrática(2)
 
 # %%
@@ -132,3 +135,48 @@ nocambia(a)
 
 # %%
 a
+
+
+# %% [markdown]
+# ## Variables locales y globales
+
+# %%
+def mifuncion():
+    print(variable_global)
+
+
+# %%
+mifuncion()
+
+# %%
+variable_global = 5.3
+
+# %%
+mifuncion()
+
+
+# %%
+def mifuncion():
+    print(variable_global)
+    variable_global = 0.0
+    print(variable_global)
+
+
+# %%
+mifuncion()
+
+
+# %%
+def mifuncion():
+    global variable_global
+    variable_global = 0
+    print(variable_global)
+
+
+# %%
+mifuncion()
+
+# %%
+print(variable_global)
+
+# %%

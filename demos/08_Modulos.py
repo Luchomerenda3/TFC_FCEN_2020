@@ -99,7 +99,7 @@ print(np.e) # SEEEEEEEEEEEEEEEEE
 np.angle(1+1j)/np.pi
 
 # %%
-np.e**(1j * np.pi) - 1.0
+np.e**(1j * np.pi) + 1.0
 
 # %%
 np.sqrt(2.0)**2
@@ -145,5 +145,11 @@ sp.gamma(1-z)*sp.gamma(z) - np.pi/np.sin(np.pi*z)
 
 # %%
 sp.gamma(1/2) - np.sqrt(np.pi)
+
+# %%
+(-3.843888588848283e-20+0j).real
+
+# %%
+(-3.843888588848283e-20+0j).imag
 
 # %%
