@@ -1,0 +1,278 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Operaciones Lógicas y comparaciones}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Booleanos}
+    \begin{block}{{\em Booleanos}}
+    Python implementa el tipo \mintinline{python}{bool} que puede tomar los valores \mintinline{python}{True} (verdadero)
+    o \mintinline{python}{False} (falso). 
+    \end{block}
+
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Operaciones Lógicas}
+    \begin{block}{{\em Operaciones Lógicas}}
+     Las siguientes operaciones lógicas están definidas para este tipo:
+        \begin{center}
+            \begin{table}[]
+                \begin{tabular}{@{}llll@{}}
+                \toprule
+                 Operación & Tipo & Definición  \\ \midrule
+                 \mintinline{python}{and} & Binaria & ``y'' lógico   \\
+                 \mintinline{python}{or}  & Binaria & ``o'' lógico  \\ 
+                 \mintinline{python}{not} & Unaria  & negación  \\ \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{center}
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Tablas de verdad}
+    \begin{block}{{\em ``y'' lógico}}
+        Esta tabla muestra el resultado de la operación \mintinline{python}{A and B} para todas las posibles combinaciones de valores de los operandos:
+        \begin{center}
+            \begin{table}[]
+                \begin{tabular}{@{}lll@{}}
+                \toprule
+                 Operando A & Operando B & Resultado  \\ \midrule
+                 \mintinline{python}{True} & \mintinline{python}{True} &  \mintinline{python}{True}  \\
+                 \mintinline{python}{False} & \mintinline{python}{False} &  \mintinline{python}{True}  \\
+                 \mintinline{python}{True} & \mintinline{python}{False} &  \mintinline{python}{False}  \\
+                 \mintinline{python}{False} & \mintinline{python}{True} &  \mintinline{python}{False}  \\
+                 \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{center}
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Tablas de verdad}
+    \begin{block}{{\em ``o'' lógico}}
+        Esta tabla muestra el resultado de la operación \mintinline{python}{A or B} para todas las posibles combinaciones de valores de los operandos:
+        \begin{center}
+            \begin{table}[]
+                \begin{tabular}{@{}lll@{}}
+                \toprule
+                 Operando A & Operando B & Resultado  \\ \midrule
+                 \mintinline{python}{True} & \mintinline{python}{True} &  \mintinline{python}{True}  \\
+                 \mintinline{python}{False} & \mintinline{python}{False} &  \mintinline{python}{False}  \\
+                 \mintinline{python}{True} & \mintinline{python}{False} &  \mintinline{python}{True}  \\
+                 \mintinline{python}{False} & \mintinline{python}{True} &  \mintinline{python}{True}  \\
+                 \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{center}
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Tablas de verdad}
+    \begin{block}{{\em negación lógica}}
+        Esta tabla muestra el resultado de la operación \mintinline{python}{not A} para todos los posibles de valores del operando:
+        \begin{center}
+            \begin{table}[]
+                \begin{tabular}{@{}ll@{}}
+                \toprule
+                 Operando &  Resultado \\ \midrule
+                 \mintinline{python}{True} & \mintinline{python}{False} \\
+                 \mintinline{python}{False} & \mintinline{python}{True} \\
+                 \mintinline{python}{True} & \mintinline{python}{False} \\
+                 \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{center}
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+    \frametitle{Comparaciones de valor}
+    \begin{block}{{\em Operadores de comparación de valor}}
+        Los operadores lógicos en general se combinan con los siguientes operadores de comparación:
+        \begin{center}
+            \begin{table}[]
+                \begin{tabular}{@{}ll@{}}
+                \toprule
+                 Operador &  Definición \\ \midrule
+                 \mintinline{python}{A == B} & \mintinline{python}{True} si $A$ es igual a $B$ \\
+                 \mintinline{python}{A != B} & \mintinline{python}{True} si $A$ es distinto de $B$ \\
+                 \mintinline{python}{A  > B} & \mintinline{python}{True} si $A$ es mayor a $B$ \\
+                 \mintinline{python}{A  < B} & \mintinline{python}{True} si $A$ es menor a $B$ \\
+                 \mintinline{python}{A >= B} & \mintinline{python}{True} si $A$ es mayor o igual a $B$ \\
+                 \mintinline{python}{A <= B} & \mintinline{python}{True} si $A$ es menor o igual a $B$ \\
+                 \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{center}
+    Las comparaciones se pueden encadenar, por jemplo \mintinline{python}{A > B > C} es una expresión válida equivalente a \mintinline{python}{(A  > B) and (B < C)}.
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+    \frametitle{Otros operadores que devuelven Booleanos}
+    \begin{block}{{\em Otros operadores que devuelven Booleanos}}
+        Los siguiente operadores binarios también devuelven valores Booleanos. Los vamos a utilizar más adelante cuando nos adentremos en el modelo de memoria y los conjuntos y secuencias, 
+        para las de equivalencia y pertenencia respectivamente.
+        \begin{center}
+            \begin{table}[]
+                \begin{tabular}{@{}ll@{}}
+                \toprule
+                 Operador &  Definición \\ \midrule
+                 \mintinline{python}{A is B} & \mintinline{python}{True} si $A$ es {\em equivalente}\dag a $B$ \\
+                 \mintinline{python}{A is not B} & \mintinline{python}{True} si $A$ es {\em no equivalente} de $B$ \\
+                 \mintinline{python}{A in B} & \mintinline{python}{True} si $A$ está contenido en $B$ \\
+                 \mintinline{python}{A not in} & \mintinline{python}{True} si $A$ no está contenido en $B$ \\
+                 \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{center}
+    \end{block}
+    (\dag) El uso de {\em equivalente} en este contexto es inexacto, pero su significado será aclarado oportunamente.
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}  
+    \frametitle{Igualdad y desigualdad entre números de punto flotante}
+    \begin{tabular}{cl}  
+      \begin{tabular}{c}
+        \includegraphics[height=2cm, width=2.3cm]{figuras/atn.png}
+        \end{tabular}
+        & \begin{tabular}{l}
+          \parbox{0.7\linewidth}{%  change the parbox width as appropiate
+          Teniendo en cuenta lo que hasta ahora vimos sobre ejemplos en los que la representación de punto flotante de un número real en general es inexacta, tenemos que, por ejemplo:
+            \begin{center}
+            \mintinline{python}{0.3 == 0.1 + 0.2} es \mintinline{python}{False}.
+            \end{center}
+        Para comparar ``igualdad'' entre números reales una primera idea sería hacer algo así: 
+            \begin{center}
+          \mintinline{python}{abs(X-Y) <= eps},     
+            \end{center}
+          donde $\epsilon>0$ es una variable que depende de cuan cerca necesitemos que $X$ esté de $Y$ para considerarlos ``iguales''.
+ }
+      \end{tabular}  \\
+\end{tabular}
+ \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}  
+    \frametitle{Igualdad y desigualdad entre números de punto flotante}
+    \begin{tabular}{cl}  
+      \begin{tabular}{c}
+        \includegraphics[height=2cm, width=2.0cm]{figuras/sin.png}
+        \end{tabular}
+        & \begin{tabular}{l}
+          \parbox{0.7\linewidth}{%  change the parbox width as appropiate
+          Pero \href{https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/}{la cosa no es tan simple}.
+          Encontrar la mejor forma de decidir cuan cerca están dos números de punto flotante es un problema no trivial. La recomendación moderada es usar la comparación relativa:
+          $$ |X - Y| <= \max(|X|,|Y|) * \sqrt{\epsilon} $$ donde $\epsilon$ sea lo que se llama \href{https://en.wikipedia.org/wiki/Machine_epsilon}{\em machine epsilon}. 
+          \vspace{0.5cm}
+        
+          Por ahora podemos decir que $\epsilon$ en NumPy está en \mintinline{python}{np.finfo(float).eps} y vale {\tt 2.220446049250313e-16}.
+ }
+      \end{tabular}  \\
+\end{tabular}
+ \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} [fragile]
+    \frametitle{Magia Negra Pytónica}
+    % \begin{center}
+    %     \includegraphics[height=2cm, width=2.3cm]{figuras/ojo.png}
+    % \end{center}
+     \begin{block}{Ojo!}
+        \begin{minted}{python}
+        >>> print("aa" > "a")
+            True
+        >>> print("ab" > "a")
+            True
+        >>> print("ab" > "b")
+            False
+        >>> print("b" > "a")
+            True
+        \end{minted}
+    \end{block}
+    \vspace{0.5cm}
+    \begin{tabular}{cl}  
+        \begin{tabular}{c}
+          \includegraphics[height=2cm, width=2.3cm]{figuras/ojo.png}
+          \end{tabular}
+          & \begin{tabular}{l}
+            \parbox{0.7\linewidth}{%  change the parbox width as appropiate
+            Notar los resultados de estas operaciones de comparación entre cadenas. En mi (limitada) experiencia es fácil terminar
+            comparando cosas que uno no quiere comparar y aún así esa comparación puede terminar teniendo un valor. 
+   }
+        \end{tabular}  \\
+  \end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} [fragile]
+    \frametitle{Magia Negra Pytónica}
+    \begin{tabular}{cl}  
+        \begin{tabular}{c}
+          \includegraphics[height=2cm, width=2.3cm]{figuras/ojo.png}
+          \end{tabular}
+          & \begin{tabular}{l}
+            \parbox{0.7\linewidth}{%  change the parbox width as appropiate
+            La ``magia negra'' no es tal, el \href{https://bit.ly/3l761c1}{manual de referencia} es muy explícito:
+
+                {\small \em
+                ``The value of an object is a rather abstract notion in Python: For example, there is no canonical access method for an object’s value.
+                Also, there is no requirement that the value of an object should be constructed in a particular way, e.g. comprised of all its data attributes. Comparison operators implement
+                a particular notion of what the value of an object is. One can think of them as defining the value of an object indirectly, {\bf by means of their comparison implementation}.''
+                }
+   }
+        \end{tabular}  \\
+  \end{tabular}
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://bit.ly/2SjRyxd}{Documentación sobre comparaciones en el manual de referencia.}
+\item \href{https://bit.ly/3nk5tSn}{Más sobre expresiones condicionales.}
+\item \href{https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/}{Artículo sobre comparación de números de punto flotante.}
+\end{itemize}
+
+\end{frame}
+
+\end{document}
