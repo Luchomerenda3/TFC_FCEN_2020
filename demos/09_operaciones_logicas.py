@@ -26,6 +26,9 @@ A = True
 B = False
 
 # %%
+type(A)
+
+# %%
 A and B
 
 # %%
@@ -66,3 +69,5 @@ xor(True, False)
 
 # %%
 xor(True, True)
+
+# %%
