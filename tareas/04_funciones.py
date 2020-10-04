@@ -70,7 +70,7 @@
 # \begin{equation}
 #   H'(x)=\left\{
 #   \begin{array}{@{}ll@{}}
-#     1, & \text{si}\ x > 1 \\
+#     1, & \text{si}\ x > 0 \\
 #     0, & \text{si}\ x < 0
 #   \end{array}\right.
 # \end{equation} 
