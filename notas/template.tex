@@ -1,0 +1,71 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Operaciones Lógicas}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Módulos}
+    \begin{block}{{\em Módulos}}
+    De acuerdo al \href{https://docs.python.org/3/glossary.html}{Glosario de Python}:
+    \begin{quote}
+    Un {\em módulo} es un objeto que sirve como una unidad organizacional de código Python. Los módulos tienen un {\em espacio de nombres} que contienen objetos de Python arbitrarios. Los módulos se cargan en Python a través del proceso de {\em importación}.
+    \end{quote}
+    \end{block}
+    \begin{itemize}
+    \item En la práctica los módulos permiten construir bibliotecas de funciones, clases, variables con valores, etc..
+    \item Los módulos se escriben en un archivo {\tt nombre.py} que debe residir en una carpeta accesible a Python.
+    \item Los módulos pueden organizarse en paquetes que pueden a su vez contener otros sub-módulos y/o sub-paquetes.
+    \end{itemize}
+    
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Sintaxis}
+    \begin{block}{Sintaxis}
+    Para importar un módulo o un módulo parte de un paquete con todos sus métodos pueden usarse las sintaxis:
+    \begin{minted}{python}
+    import modulo 
+    from paquete import módulo
+    \end{minted}
+    o
+    \begin{minted}{python}
+    import modulo as alias
+    from paquete import módulo as alias
+    \end{minted}
+    En el caso de usar un alias este reemplaza el nombre del módulo para llamar a sus métodos.
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://numpy.org/doc/stable/}{Documentación de NumPy}
+\item \href{https://numpy.org/doc/stable/reference/routines.math.html}{Funciones matemáticas en NumPy}
+
+\end{itemize}
+\end{frame}
+
+\end{document}
