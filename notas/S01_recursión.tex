@@ -1,0 +1,89 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Recursión}
+\subtitle{Recursión}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Programación funcional}
+    \begin{block}{{\em Programación funcional}}
+        La programación funcional es un {\em paradigma de programación} donde los programas se sonstruyen por medio de la
+        aplicación y composición de funciones. En la programación funcional estricta las funciones son {\em funciones puras} 
+        y no pueden tener efectos colaterales. Si bien representa un paradigma ``elegante'' (desde un punto de vista muy Platónico quizás),
+        los programas funcionales son menos eficientes (en tiempo y memoria) que los programas imperativos. La programación funcional es importante
+        en la teoría de la computación ya que permite probar ciertos teoremas muy generales sobre complejidad algorítmica.
+    \end{block}    
+    A pesar de lo anterior la programación funcional resulta un ejercicio importante que puede ayudarnos en nuestra construcción del pensamiento algorítmico.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Composición}
+    \begin{block}{{\em Composición}}
+
+    La definición de funciones en términos de composición de otras nos es intuitiva desde nuestros conocimientos de análisis: $h(x) =f(g(x))$.
+    Como en el caso de los ejercicios de operadores lógicos el uso de composición de funciones nos permite descomponer un problema complejo
+    en ``ingredientes'' más simples.
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Recursión}
+    \begin{block}{Recursión}
+
+    A diferencia de la definición en base a composición la {\em recursión} (y su prima cercana la {\em inducción}) son menos usadas y por lo tanto
+    no tan familiares. Por ejemplo, la definición recursiva de la factorial parte del \alert{caso base}:
+    $$0!=1$$
+    y de allí se define para todo $n>0$ de la forma
+    $$n! = (n-1)!$$
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Recursión}
+    \begin{block}{Recursión}
+    El código python para definir la factorial en forma recursiva es:
+    \begin{minted}[showspaces=true,autogobble=true]{python}
+    def fact(n):
+        if n == 0: # caso base
+            return 1 
+        else: # para todos los otros n
+            return n*fact(n-1) 
+    \end{minted}
+    Notar que dentro de la definición de \mintinline{python}{fact} tenemos una invocación a \mintinline{python}{fact}, esto
+    convierte la definición en recursiva. La recursión converge porque la invocación tiene como argumento \mintinline{python}{n-1}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://bit.ly/2GsZnhX}{Recursión en wikipedia}
+\item \href{https://bit.ly/34AKNg7}{Excepciones, utilizadas en el demo.}
+\end{itemize}
+\end{frame}
+
+\end{document}
