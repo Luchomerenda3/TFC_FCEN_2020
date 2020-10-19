@@ -1,0 +1,57 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{matplotlib}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Bibliotecas gráficas en Python}
+    \begin{block}{{\em Bibliotecas gráficas en Python}}
+        Las siguientes son las bibliotecas gráficas más utilizadas en Python
+    \begin{itemize}
+    \item \href{https://matplotlib.org}{Matplotlib}: La más ``simple'', porque seguramente alguien hizo antes algo parecido a lo que querés hacer y lo escribió en algún lado.
+    \item \href{http://seaborn.pydata.org}{Seaborn}: Más ``bella'', matplotlib con colores más lindos, se usa mucho junto con Pandas (gráficos estadísticos)
+    \item \href{http://ggplot.yhathq.com}{ggplot}: Basada en la ``gramática de los gráficos'', portada desde R, énfasis en estadística.
+    \item \href{https://docs.bokeh.org/en/latest/}{Bokeh}: De los que hacen Anaconda, creada para graficos interactivos sobre información en tiempo real.
+    \item \href{https://plotly.com}{Plotly}: Gráficos interactivos en ``tableros de control''.
+    \end{itemize}
+\end{block}    
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{matplotlib}
+    \includegraphics[width=5cm]{figuras/matplotlib.png}
+    \begin{block}{matplotlib}
+        \begin{itemize}
+            \item El estándar {\em de facto} para visualización en Python.
+            \item Poderoso para gráficos 2D.
+            \item Complicado (como todas las bibliotecas gráficas).
+            \item Permite hacer diseño programático de gráficos (no solo matplotlib).
+            \item La documentación es una pesadilla.
+            \item El camino: Usar alguna ``receta'' existente y modificarla.
+        \end{itemize}
+    \end{block}
+    \end{frame}
+
+\end{document}
