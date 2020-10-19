@@ -1,0 +1,224 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Secuencias: listas, tuplas y rangos}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Secuencias}
+    Como vimos existen tres tipos de secuencias incorporadas en Python:
+    \begin{block}{tuplas}
+        Secuencias inmutables de elementos de distinto tipo $\dagger$.
+    \end{block}
+    \begin{block}{listas}
+        Secuencias mutables de elementos del mismo tipo $\dagger$.
+    \end{block}
+    \begin{block}{rangos}
+        Secuencias inmutables de enteros ordenados.
+    \end{block}
+    Se pueden definir otros objetos que se clasifican como secuencias si implementan una serie de métodos especiales.
+
+    $\dagger$ El lenguaje no fuerza que los elementos cumplan esto.
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Listas}
+    \begin{block}{Listas}
+    Se puede crear una lista en python de la siguientes formas:
+        \begin{minted}[autogobble=true]{python}
+        l_vacia = [] # crea una lista vacia
+        l_vacia = list()
+
+        # el argumento del constructor puede ser cualquier iterable
+        l_importantes = list((3.14,2.71))
+
+        l_enteros = [-3, -2, -1, 0, 1, 2, 3] # buen ejemplo
+
+        # un ejemplo de la anarquia pytonica
+        l_cosas = [3, 3.0, 'cadena', 1+3j, [-1,4,'mas cosas']]
+
+        # algo que se parece a una matriz
+        A = [[0.2, 0.3, 0.4], [0.5, 0.9, 3.4], [0.0, 1.0, 4.0]]
+        \end{minted}
+    \end{block}
+    \end{frame}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Tuplas}
+    \begin{block}{Tuplas}
+        \begin{itemize}
+        \item Las tuplas en Python se usan fundamentalmente para devolver más de un valor en una función. Se utilizan en casos especiales para pasar a algunas 
+    funciones parámetros que contienen otros parámetros. 
+        \item Al ser inmutables su utilidad dentro de la programación científica (en nuestra opinión) es limitada, pero como son {\em hasheables}\/ pueden utilizarse
+    como índices en los diccionarios (los veremos más adelante).
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Tuplas}
+    \begin{block}{Tuplas}
+    Se pueden crear tuplas de la siguiente forma:
+    \begin{minted}[autogobble=true]{python}
+        # directamente
+        planta = ('mimbulus','mimbletonia')
+        alumno = ('Cedric','','Diggory','Hufflepuff')
+        # la coma hace a la tupla
+        enemigo = 'Tom','Marvolo','Riddle','Slythrin' 
+
+
+        # a partir de una función que
+        # devuelve varios valores
+        def f(x):
+            return x,x**2,x**3
+
+        potencias_de_dos = f(2)
+    \end{minted}
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Rangos}
+    \begin{block}{Rangos}
+    Los rangos {\bf representan} (no contienen) una secuencia de enteros ordenados. Se generan usando el constructor de la clase, la función
+    \mintinline{python}{range(start,stop,step)}, la cual se puede llamar con uno, dos o tres argumentos. Ejemplos:
+    \begin{minted}[autogobble=true]{python}
+        # Enteros de 0 a (stop-1)
+        rango_1 = range(10) 
+
+        # Enteros de start a (stop-1)
+        rango2 = range(-10,11)
+
+        # Enteros de start a (stop-1) de dos en dos (step) 
+        rango2 = range(-10,11,2)
+    \end{minted}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Indexación}
+    \begin{block}{Indexación}
+    Todas las secuencias son indexables:
+    \begin{itemize} 
+        \item \mintinline{python}{seq[i]} es el i-ésimo elemento de la secuencia.
+        \item \mintinline{python}{seq[0]} es el primer elemento de la secuencia.
+        \item \mintinline{python}{seq[i:j]} es una {\em rebanada} de la secuencia, es la sub-secuencia desde
+        el índice $i$ \alert{al $j-1$}.
+        \item \mintinline{python}{seq[-1]} es el último elemento. Cualquier índice negativo
+        sirve para indexar desde el final de la secuencia.
+        \item Una lista de listas se idexa de la forma \mintinline{python}{seq[i][j]}
+    \end{itemize}
+    Si bien las secuencias son más generales podemos pensarlas (y usarlas) como un vector de $n$ componentes.
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Operaciones implementadas para secuencias (mutables o inmutables)}
+{\small
+    \begin{table}[]
+    \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Operación}           & \textbf{Resultado}                                                                  \\ \midrule
+    \mintinline{python}{x in s}                        & \mintinline{python}{True} si un elemento de $s$ es igual a $x$, sino \mintinline{python}{False}                                  \\
+    \mintinline{python}{x not in s}                   & \mintinline{python}{False} si un elemento de $s$ es igual a $x$, sino \mintinline{python}{True}                                   \\ \midrule
+    \mintinline{python}{s + t}                        & la concatenation de $s$ y $t$                                                     \\ \midrule
+    \mintinline{python}{s * n} o \mintinline{python}{n * s}  & equivalente a sumar $s$ a si misma $n$ veces                                         \\
+    \mintinline{python}{s[i]}                     & \textit{$i$ésimo elemento de $s$, \alert{el primero es el 0}}                                                 \\
+    \mintinline{python}{s[i:j]}                   & \alert{rebanada} de $s$ de $i$ a $j$                                                           \\
+    \mintinline{python}{s[i:j:k]}                 & \alert{rebanada} de $s$ de $i$ a $j$ con paso $k$                                               \\
+    \mintinline{python}{len(s)}                       & largo de $s$                                                                      \\
+    \mintinline{python}{min(s)}                       & el menor elemento de $s$                                                               \\
+    \mintinline{python}{max(s)}                       & el mayor elemento de $s$                                                                \\
+    \mintinline{python}{s.index(x, i[, j]])} & índice de la primera ocurrencia de $x$ en $s$  \\
+                                 & (a o antes de $i$ y antes de $j$) \\
+    \mintinline{python}{s.count(x)}                   & número total de ocurrencias de $x$ in $s$                                            \\ \bottomrule
+    \end{tabular}
+    \end{table}
+}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Operaciones implementadas para secuencias mutables (listas)}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+{\small
+    \begin{table}[]
+    \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Operación}    & \textbf{Resultado}                                                                          \\ \midrule
+    \mintinline{python}{s[i] = x}              & reemplaza el ítem $i$ de $s$ por $x$                                                             \\
+    \mintinline{python}{s[i:j] = t}            & la rebanada de $s$ desde $i$ a $j$ se reemplaza \\ & por el contenido del iterable $t$                     \\ 
+    \mintinline{python}{del s[i:j]}            & equivalente a \mintinline{python}{s[i:j] = []}                                                              \\ 
+    \mintinline{python}{s[i:j:k] = t}          & los elementos de \mintinline{python}{s[i:j:k]} son reemplazados por los de $t$                                  \\
+    \mintinline{python}{s *= n}                & actualiza $s$ con su contenido repetido $n$ veces                                             \\
+    \end{tabular}
+    \end{table}
+}  
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Operaciones implementadas para secuencias mutables (listas)}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+{\small
+    \begin{table}[]
+    \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Operation}    & \textbf{Result}                                                                          \\ \midrule
+    \mintinline{python}{s.append(x)}           & agrega $x$ al final de la secuencia            \\
+    \mintinline{python}{s.clear()}             & remueve todos los elementos de $s$                                          \\
+    \mintinline{python}{s.copy()}              & crea una copia \alert{superficial} de $s$                                          \\
+    \mintinline{python}{s.extend(t)} o \mintinline{python}{s += t} & extiende $s$ con el contenido de $t$  \\
+    \mintinline{python}{s.insert(i, x)}        & inserta $x$ en $s$ en el índice $i$                  \\
+    \mintinline{python}{s.pop([i])}            & devuelve y remueve de $s$ el elemento en $i$         \\ 
+    \mintinline{python}{s.remove(x)}           & remueve el primer elemento de $s$ cuyo valor es $x$                                \\
+    \mintinline{python}{s.reverse()}           & invierte el orden de los elementos de $s$ sin hacer una copia                                                        
+    \end{tabular}
+    \end{table}
+}  
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+    \item \href{https://docs.python.org/3/reference/index.html}{Manual de referencia de Python}
+    \item \href{https://docs.python.org/3/library/index.html}{Manual de la Librería estándar de Python}
+\end{itemize}
+\end{frame}
+
+\end{document}
