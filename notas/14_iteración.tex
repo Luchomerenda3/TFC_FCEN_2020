@@ -1,0 +1,170 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Iteración sobre secuencias}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Iteración sobre secuencias}
+    \begin{block}{{\em Iteración sobre secuencias}}
+    Python provee la declaración \mintinline{python}{for} para iterar sobre secuencias:
+    \begin{minted}[showspaces=true,autogobble=true]{python}
+        for x in s:
+            # esto se repite tantas veces como elementos
+            # tenga s y x toma el valor i-esimo en la iteración i
+    \end{minted}
+    Dada una secuencia, por ejemplo una lista \mintinline{python}{s = [1,2,3,4,5]}, el bloque que sigue a la línea contiendo la declaración \mintinline{python}{for}
+    se ejecutará 5 veces. En cada iteración la variable \mintinline{python}{x} tomará los valores 1,2,3,4 y 5. 
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Iteración sobre un rango}
+    \begin{block}{{\em Iteración sobre un rango}}
+    Los rangos se utilizan en muchos casos para representar una secuencia de enteros sobre la cual iterar sin necesariamente construir una lista que contenga los valores:
+    \begin{minted}[showspaces=true,autogobble=true]{python}
+        for i in range(0,n):
+            # esto se repite n veces, i toma los valores desde
+            # 0 a (n-1)
+    \end{minted}
+    Esta es, por lejos, la estructura de bucle más utilizada en Python y representa una alternativa a la declaración \mintinline{python}{while}.
+    \end{block}
+    Las palabras clave \mintinline{python}{break} y \mintinline{python}{continue} se pueden utilizar de la misma manera que en el bucle \mintinline{python}{while}.
+    \mintinline{python}{break} sale incondicionalmente y \mintinline{python}{continue} hace que i tome el siguente valor y el bloque se ejecute desde el inicio salteando lo
+    que siga.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Iteración sobre un \mintinline{python}{enumerate}}
+    \includegraphics[height=0.8cm, width=0.8cm]{figuras/sin.png}
+    \begin{block}{{\em Iteración sobre un \mintinline{python}{enumerate}}}
+    La declaración \mintinline{python}{for} se puede utilizar con objetos {\em iterables} o funciones especiales llamadas {\em generadores}. Si bien no vamos a entrar en esa
+    rama hay un generador que es muy útil: \mintinline{python}{enumerate(s)} devuelve, en cada iteración, una tupla \mintinline{python}{(i,x)} que contiene el valor y su índice:
+    \begin{minted}[showspaces=true,autogobble=true]{python}
+        for i,x in enumerate(s):
+            # esto se repite tantas veces como elementos
+            # tenga s y x e i toman el valor i-ésimo y su índice, 
+            # respectivamente, en cada iteración.
+    \end{minted}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Ejemplo}
+    \begin{block}{Evaluar una función en un intervalo de la recta real}
+    Podemos modificar el ejemplo que habíamos utilizado en la demo de bucles para, ahora que sabemos como, almacenar una tabla de valores
+    en vez de mostrarla en pantalla:
+    \begin{minted}{python}
+    n = 1000; xmin = -1.0; xmax = 1.0
+    xs = []; ys =[]
+
+    for i in range(0,n+1):
+        x = xmin + i * (xmax - xmin) / n
+        xs += [x]
+        ys += [f(x)]
+
+    \end{minted}
+    Ahora la lista \mintinline{python}{xs} contiene la grilla sobre la que evaluamos a la función y la lista \mintinline{python}{ys} el valor
+    en cada punto. Notar que usamos \mintinline{python}{(n+1)} en el rango, \mintinline{python}{n} es la cantidad de sub-intervalos en la grilla
+    que contiene \mintinline{python}{(n+1)} puntos.
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Comprehensiones}
+    \includegraphics[height=0.8cm, width=0.8cm]{figuras/sin.png}
+    \begin{block}{Comprehensiones}
+    Las {\em comprehensiones} proveen una forma concisa de crear listas. Las comprhensiones utilizan
+    una o más palabras clave \mintinline{python}{for} o \mintinline{python}{if}
+    \begin{minted}[autogobble=true]{python}
+        # lista de numeros entre 0 y 99
+        s = [i for i in range(0,100)]
+
+        # números pares entre 0 y 99
+        s = [i for i in range(0,100) if i%2 ==0]
+
+        # pueden anidarse
+        s = [[i*j for i in range(0,100)] for j in range(0,100)]
+    \end{minted}
+    En estos ejemplos hemos usado rangos pero se puede utilizar cualquier iterable.
+    \end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \includegraphics[height=0.8cm, width=0.8cm]{figuras/sin.png}
+    \frametitle{Mapas}
+    \begin{block}{Mapas}
+    Es posible construir un generador que represente la aplicación de una función a cada miembro de una lista
+    utilizando la función \mintinline{python}{map()}
+    \begin{minted}[autogobble=true]{python}
+        # lista de numeros entre 0 y 99
+        xs = [-1 + 2 * i / 100 for i in range(0,101)]
+
+        # una función
+        def f(x):
+            return np.sin(x)/(x+3)
+
+        # lista de valores de f sobre xs
+        ys = list(map(f,xs))
+    \end{minted}
+    En el último ejemplo convertimos el iterable en una lista.
+    \end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \includegraphics[height=0.8cm, width=0.8cm]{figuras/sin.png}
+    \frametitle{Funciones anónimas}
+    \begin{block}{Funciones anónimas, expresiones \mintinline{python}{lambda}}
+    Para evitar definir la función en el ejemplo anterior podemos utilizar la expresión
+    \mintinline{python}{lambda} que nos permite definir una función {\em anónima} en
+    el lugar en el que la necesitamos.
+    \begin{minted}[autogobble=true]{python}
+        # lista de numeros entre 0 y 99
+        xs = [-1 + 2 * i / 100 for i in range(0,101)]
+        # lista de valores de f sobre xs
+        ys = list(map(lambda x : np.sin(x)/(x+3),xs))
+    \end{minted}
+    Las expresiones \mintinline{python}{lambda} pueden usarse en cualquier lugar que debamos pasar 
+    una función como argumento y permiten usar la función sin definirla explícitamente.
+    \end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+    \item \href{https://docs.python.org/3/reference/index.html}{Manual de referencia de Python}
+    \item \href{https://docs.python.org/3/library/index.html}{Manual de la Librería estándar de Python}
+\end{itemize}
+\end{frame}
+
+\end{document}
