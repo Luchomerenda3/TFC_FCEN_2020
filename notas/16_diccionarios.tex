@@ -1,0 +1,89 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Diccionarios}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Diccionarios}
+    \begin{block}{Diccionarios}
+        Los diccionarios son listas asociativas en las que el índice puede ser cualquier objeto {\em hasheable}.
+        La razón de este requisito es que que se implementan como {\em hashtables}. 
+        \begin{itemize}
+        \item En este curso no vamos a profundizar sobre los diccionarios.
+        \item Se usar como parámetros para algunas funciones de SciPy y por lo tanto es necesario conocerlos para usarlas.
+        \item Si bien en comptación científica las estructuras de datos más utilizadas son los {\em arreglos multidimensionales}, de los cuales los vectores, matrices y tensores son ejemplos,
+        las {\em hashtables} pueden tener aplicaciones inesperadas. Un ejemplo es agilizar el acceso a tensores de muchísimas dimensiones a través de un {\em hash} de sus índices.
+        \end{itemize}
+    \end{block}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Diccionarios: algunos ejemplos}
+    \begin{minted}{python}
+    d = {}     # crea un diccionario vacío
+    d = dict() # idem
+
+    # un diccionario que contiene algunas constantes fundamentales
+    cf = {'epsilon_0' : 8.854_187_8128e-12, 
+          'hbar' : 6.626_070_15e-34/2/np.pi,
+          'c' : 299_792_458, 'G' : 6.674_30e-11}
+
+    # es indexable por sus llaves, aquí agregamos e
+    d['e'] = 1.602_176_634e-19
+
+    # indexamos con llaves como lo haríamos con una lista
+    tiempo_de_planck = np.sqrt(cf['hbar'] *
+                       cf['G'] / cf['c']**5) 
+    \end{minted}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Diccionarios: herramientas de iteración}
+    \includegraphics[height=0.8cm, width=0.8cm]{figuras/sin.png}
+    \begin{minted}{python}
+    # iterando sobre las llaves
+    for k in d.keys():
+        # hago algo 
+
+    # iterando sobre los pares de llave y valor
+    for k,v in d.items():
+        # tengo una tupla (k,v)
+        # con cada llave y valor 
+        # en cada iteración
+    \end{minted}
+    \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Síntesis y recursos:}
+
+\begin{itemize}
+\item \href{https://numpy.org/doc/stable/}{Documentación de NumPy}
+\item \href{https://numpy.org/doc/stable/reference/routines.math.html}{Funciones matemáticas en NumPy}
+
+\end{itemize}
+\end{frame}
+
+\end{document}
