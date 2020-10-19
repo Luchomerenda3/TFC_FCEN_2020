@@ -1,0 +1,130 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[outputdir=.build]{minted}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks = true
+}
+
+\usetheme{Madrid}
+
+%Information to be included in the title page:
+\title{Taller de Física Computacional}
+\subtitle{Estructuras de datos}
+\author{Cristián G. Sánchez y Carlos J. Ruestes}
+\date{2020}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Estructuras de datos}
+    Las estructuras de datos son la forma en que vemos y manipulamos esto:
+    \begin{verbatim}
+55 fb 89 2c b8 b7 84 26 #00000000 
+b8 e0 15 04 31 45 e2 bb #00000001
+44 a0 04 5a e6 d7 85 d2 #00000002
+e1 6b 5d d3 a1 b9 f8 e6 #00000003
+e3 6b 1d ff 39 06 c3 54 #00000004
+2e 3d 4e 83 cf a4 3b 1d #00000005
+54 94 45 42 81 6a b6 1d #00000006
+3c 2b 75 bb 8c e9 2b d4 #00000007
+    \end{verbatim}    
+    de una forma más ``amigable''.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+    \frametitle{Estructuras de datos}
+    \begin{block}{Datos en RAM}
+        En la RAM los datos se representan en forma binaria, ordenados de acuerdo a una secuencia de {\em direcciones} que permiten al processador
+        leerlos o escribirlos. 
+    \end{block}
+    \begin{block}{Estructuras de datos}
+        Las estructuras de datos son formas de organización manejo y almacenamiento de los datos que permiten acceso y modificacion {\em eficientes}.
+        Son abstracciones dentro del lenguaje que se representan de alguna manera en la RAM que \alert{en principio} no nos interesa.
+    \end{block}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Estructuras de datos en Python}
+    \includegraphics[height=0.8cm, width=0.8cm]{figuras/sin.png}
+        Los tipos de datos (u objetos en general) en python pueden ser {\em mutables} o {\em inmutables}:
+        \begin{block}{Objetos Inmutables}
+            Son los objetos cuyo valor tienen un valor fijo, que no se puede cambiar una vez creados. Son inmutables, por ejemplo, los literales.
+        \end{block}
+        \begin{block}{Objetos Mutables}
+            Son los objetos que pueden cambiar su valor pero mantienen su identificación (\mintinline{python}{id()})
+        \end {block}        
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Hash}
+    \includegraphics[height=0.8cm, width=0.8cm]{figuras/sin.png}
+    La inmutabilidad es un requisito para que un objeto sea {\em hasheable}.
+    \begin{block}{Función {\em Hash}}
+        Una función {\em hash} es un mapa (en principio unívoco) entre datos de tamaño arbitrario a valores de tamaño fijo. El valor puede ser utilizado como índice en una tabla ({\em hashtables}).
+    \end{block}   
+    \begin{itemize}
+        \item La palabra {\em hash} tiene muchas traducciones literales que dependen del contexto. La de contexto culinario (picar y mezclar) es la que probablemente da origen a su uso. 
+        No existe una palabra castellana exactamente equivalente y por tanto se utiliza sin traducir, algunos prefieren la palabra ``resumen''. 
+    \end{itemize}   
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Estructuras de datos en Python}
+    Aparte de las estructuras de datos simples que vimos hasta ahora (enteros, punto flotante, complejos, cadenas, etc.) Python implementa (entre otras) las siguientes
+    estructuras de datos de forma nativa:
+    \begin{block}{Secuencias}
+        \begin{itemize}
+            \item {\tt \bf tuple:} Secuencia inmutable usualmente utilizada para almacenar colecciones de elementos heterogéneos.
+            \item {\tt \bf list:} Secuencia mutable usualmente utilizada para almacenar colecciones de elementos homogéneos.
+            \item {\tt \bf range:} Secuencia inmutable de enteros ordenados, comunmente utilizada en bucles.       
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Estructuras de datos en Python}
+\includegraphics[height=0.8cm, width=0.8cm]{figuras/sin.png}
+    \begin{block}{Conjuntos}
+        \begin{itemize}
+            \item {\tt \bf set:} Colección no ordenada de objetos que deben ser {\em hasheables}, es mutable.
+            \item {\tt \bf frozenset:} Un {\tt \bf set} inmutable.
+        \end{itemize}
+    \end{block}
+    \begin{block}{Mapas}
+        \begin{itemize}
+            \item {\tt \bf dict} Una {\em hashtable} que mapea un objeto {\em hasheable} a otro objeto arbitrario. Los diccionarios son mutables. 
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Síntesis y recursos:}
+
+    Hay otras estructuras de datos implementadas en la biblioteca estándar, en particular en el módulo {\em collections}, para más detalles ver la sección Data Types del manual de la bilioteca estándar.
+    
+    \begin{itemize}
+    \item \href{https://bit.ly/3nRJIJD}{Función Hash en Wikipedia}
+    \item \href{https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844?tag=guru990f-20}{Introduction to Algorithms, Cormen {\em et al.}}
+    \item \href{https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming}{The Art of Computer Programming}
+    \item \href{https://docs.python.org/3/reference/index.html}{Manual de referencia de Python}
+    \item \href{https://docs.python.org/3/library/index.html}{Manual de la Librería estándar de Python}
+    \end{itemize}
+    \end{frame}
+
+\end{document}
