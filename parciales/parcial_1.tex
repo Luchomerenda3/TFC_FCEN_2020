@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage{avant}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+\title{Taller de Física Computacional 2020}
+
+\author{Primer Parcial}
+
+\maketitle
+
+\noindent {\bf IMPORTANTE:} 
+\begin{itemize}
+    \item Resuelva los ejercicios en un notebook nuevo que deberá subir como respuesta a esta tarea una vez resuelto.
+    \item Comente el código de manera que sea legible por otra persona.
+    \item Todas las celdas deben ejecutar sin error. Se recomienda hacer un reinicio del núcleo y evaluar todas las celdas en orden para asegurarse que ejecuta como corresponde antes de entregar.
+    \item Lea {\bf atentamente} las consignas.
+\end{itemize}
+
+\begin{enumerate}
+    \item[\bf Ejercicio 1] ({\em 20 puntos}) Graficar la función 
+    $$ f(x) = e^{-x}\sin 10x $$
+    en el intervalo $[0,10]$.
+    \item[\bf Ejercicio 2] ({\em 20 puntos}) Implementar una función que clasifique un triángulo como
+    rectángulo, acutángulo u obtusángulo dadas las longitudes de sus lados $a$, $b$ y $c$ (números reales)
+    en base a las condiciones enumeradas en la siguiente tabla:
+    \begin{center}
+        \begin{tabular}{@{}ll@{}}
+            Condición            & Tipo                                               \\ \midrule
+            si $a^2 + b^2 = c^2$ & el triángulo es {\bf rectáncgulo} \\ 
+            si $a^2 + b^2 > c^2$ & el triángulo es {\bf acutángulo}  \\
+            si $a^2 + b^2 < c^2$ & el triángulo es {\bf obtusángulo} \\ \bottomrule
+            \end{tabular}  
+    \end{center}
+    \item[\bf Ejercicio 3] ({\em 20 puntos}) Implementar una función que determine las
+    componentes del vector $\mathbf{C}$, donde $\mathbf{C}=\mathbf{A}\times\mathbf{B}$
+    es el producto vectorial entre los vectores $\mathbf{A}$ y $\mathbf{B}$. 
+    Nota: usar {\tt numpy.cross} o similar es {\bf trampa}.
+    \item[\bf Ejercicio 4]  ({\em 20 puntos}) La ecuación Pitagórica 
+    $$i^2+j^2=k^2$$
+    tiene un número infinito de soluciones enteras {\bf positivas} llamadas 
+    ``triplas Pitagóricas''. 
+    \begin{enumerate}
+        \item[a] ({\em 10 puntos}) Diseñar e implementar una función que calcule (imprima) todas las
+        triplas Pitagóricas para un dado $m$ tal que $i \le m$, $j\le m$ y $k\le m$.
+        No importa si el código devuelve algunas triplas repetidas.
+        \item[b] ({\em 10 puntos}) Modificar la función para ``probar'' que el último teorema de Fermat, que
+        asegura que no existe ninguna solución de enteros positivos a $$i^n+j^n=k^n,$$
+        es válido hasta un cierto entero positivo $m$.
+        \item[c] ({\bf opcional}) Modificar la función del ítem (a) para que devuelva
+        una secuencia de tuplas que contenga las triplas únicas.
+    \end{enumerate}
+    \item[Ejercicio 5] ({\em 20 puntos}) Una serie de Fourier tiene la forma
+    $$s(x) = \frac{a_0}{2}+\sum_{i=1}^N \left( a_n \cos(nx) + b_n \sin(nx) \right)$$
+    y puede aproximar (con valores adecuados de $\{a_n\}$ y $\{b_n\}$) cualquier función
+    periódica de período $2\pi$.
+    \begin{enumerate}
+        \item ({\em 8 puntos}) Implementar una función que acepte como parámetros dos listas conteniendo los conjuntos de coeficientes $\{a_n\}$ y $\{b_n\}$ y evalúe la correspondiente serie de Fourier para un argumento $x\in \mathbb{R}$.
+        \item ({\em 8 puntos}) Utilizar la función anterior para implementar una nueva función que evalúe la serie de Fourier de la función {\em serrucho} para la
+        cual 
+        $$a_n = 0\ \forall\ n$$
+        y
+        $$b_n = \frac{2(-1)^{n+1}}{n \pi}\ \forall\ n\ge 1$$
+        \item ({\em 4 puntos}) Comparar gráficamente la aproximación de órden $10$ para la función serrucho. 
+        Utilizar la siguiente definición para la función serrucho:
+        \begin{verbatim}
+def f(x):
+    return 2*((x+1/2) - math.floor(x+1/2)) - 1   
+        \end{verbatim}
+        Nota: En esta definición $f(x)$ es periódica con período 1.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
