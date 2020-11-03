@@ -22,7 +22,7 @@
 #
 # Definir (y probar con tres casos) una función que calcule el polinomio
 #
-# $$p(x) = 1 + x + x**2$$
+# $$p(x) = 1 + x + x^2$$
 
 # %%
 

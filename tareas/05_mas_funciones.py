@@ -25,6 +25,24 @@
 # Definir una función que calcule las raíces de un polinomio arbitrario de grado 2.
 
 # %%
+import cmath as cm
+import math as m
+
+
+# %%
+def raices(a,b,c):
+    return (-b+cm.sqrt(b**2-4*a*c))/(2*a),(-b-cm.sqrt(b**2-4*a*c))/(2*a)
+
+
+# %%
+raices(1,1,1)
+
+# %%
+raices(1,-1,-1)
+
+# %%
+raices(3,4,5)
+
 
 # %% [markdown]
 # ## Ejercicio 2
@@ -36,7 +54,7 @@
 # %% [markdown]
 # ## Ejercicio 3
 #
-# Verificar para tres pares de $\alpha$ y $\beta$ que si
+# Verificar para tres triplas de $\alpha$, $\beta$ y $x$ que si
 #
 # $$f(x) = \frac{(\cos\alpha)x - \sin\alpha}{(\sin\alpha)x + \cos\alpha}$$
 #
@@ -49,14 +67,39 @@
 # $$f\big(g(x)\big) = g\big(f(x)\big)$$
 
 # %%
+def f(x,alpha):
+    return (m.cos(alpha)*x-m.sin(alpha))/(m.sin(alpha)*x+m.cos(alpha))
+
+
+# %%
+f(f(2,0.5),1.5) - f(f(2,1.5),0.5)
+
+# %%
+f(f(3,4.5),2.5) - f(f(3,2.5),4.5)
+
+# %%
+f(f(3.14,1),2) - f(f(3.14,2),1)
+
 
 # %% [markdown]
 # ## Ejercicio 4
 #
-# Verificar para tres casos que si $a_1$ y $a_2$ con constantes complejas entonces es cierto que
+# Verificar para tres casos que si $a_1$, $a_2$ y $z$ son constantes complejas entonces es cierto que
 #
 # $\cot(z - a_1)\cot(z - a_2) = -1 + \cot(a_1 - a_2)\cot(z - a_1) + \cot(a_2 - a_1)\cot(z - a_2)$
-#
-# para todo z complejo.
+
+# %%
+def ff(z,a1,a2):
+    return (1/cm.tan(z-a1))*(1/cm.tan(z-a2)) + 1 - (1/cm.tan(a1-a2))*(1/cm.tan(z-a1)) - (1/cm.tan(a2-a1))*(1/cm.tan(z-a2)) 
+
+
+# %%
+ff(1j,0.1+1j,0.21j)
+
+# %%
+ff(3j,0.1+4j,0.2555j)
+
+# %%
+ff(3+1j,2+2j,1+3j)
 
 # %%

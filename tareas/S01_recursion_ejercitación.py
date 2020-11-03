@@ -46,7 +46,7 @@
 #
 # $$P_0(x) = 1$$
 # $$P_1(x) = x$$
-# $$(j+1) P(j+1) = (2j+1)xP_j(x)-jP_{j-1}(x)$$
+# $$(j+1) P_{j+1}(x) = (2j+1)xP_j(x)-jP_{j-1}(x)$$
 #
 # Definir y probar una función que evalúe $P_n(x)$.
 
