@@ -132,11 +132,45 @@ def triplas_pitagóricas(n):
                     print(i,j,k)
                     cuantas += 1
     print(f'hay {cuantas} triplas')
-            
 
 
 # %%
 triplas_pitagóricas(100)
+
+# %%
+9**2+12**2,15**2
+
+
+# %%
+def plimpton(m):
+    cuantas = 0
+    for n in range(1, m+1): #Empiezo desde 1 para evitar las ternas con cero por la trivialidad
+        for l in range(1, m+1):
+            if (l > n):
+                i = l**2 - n**2
+                j = 2 * n * l
+                k = n**2 + l**2
+                if i<=m and j<=m and k<=m:
+                    print(i,j,k)
+                    cuantas += 1
+    print(f'hay {cuantas} triplas')
+
+
+# %%
+plimpton(50)
+
+
+# %%
+def triplas_pitagóricas(n):
+    cuantas = 0
+    for i in range(1,n+1):
+        for j in range(1,n+1):
+            for k in range(1,n+1):
+                if i**2 + j**2 == k**2:
+                    print(i,j,k)
+                    cuantas += 1
+    print(f'hay {cuantas} triplas')
+
 
 # %%
 import itertools # Acá estoy haciendo trampa para encontrar las permutaciones, hay formas más simples (ordenar las triplas por ej. )
@@ -169,7 +203,7 @@ def fermat(m,n):
 
 
 # %%
-fermat(500,3)
+fermat(50,3)
 
 
 # %% [markdown]
@@ -232,5 +266,6 @@ plt.plot(xs,ys)
 plt.plot(xs,yss)
 
 # %%
+bs
 
 # %%
